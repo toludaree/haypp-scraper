@@ -37,9 +37,15 @@ class HayppItem(Item):
                      output_processor=Join())
 
     # Description
-    category = Field(output_processor=Join())
-    flavour_pg = Field(output_processor=Join())
-    strength_definition = Field(output_processor=Join())
-    manufacturer = Field(output_processor=Join())
-    nicotine_mg_portion = Field(output_processor=Join())
-    amount_of_bags_can = Field(output_processor=Join())
+    category = Field(input_processor=MapCompose(strip),
+                     output_processor=Join(separator=""))
+    flavour_pg = Field(input_processor=MapCompose(strip),
+                       output_processor=Join(separator=""))
+    strength_definition = Field(input_processor=MapCompose(strip),
+                                output_processor=Join(separator=""))
+    manufacturer = Field(input_processor=MapCompose(strip),
+                         output_processor=Join(separator=""))
+    nicotine_mg_portion = Field(input_processor=MapCompose(strip),
+                                output_processor=Join(separator=""))
+    amount_of_bags_can = Field(input_processor=MapCompose(strip),
+                               output_processor=Join(separator=""))
