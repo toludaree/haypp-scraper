@@ -15,16 +15,26 @@ class HayppItem(Item):
     # Facts
     brand_name = Field(input_processor=MapCompose(strip),
                        output_processor=Join())
-    product_type = Field(output_processor=Join())
-    format = Field(output_processor=Join())
-    strength = Field(output_processor=Join())
-    flavour_facts = Field(output_processor=Join())
-    nicotine_strength_mg_pouch = Field(output_processor=Join())
-    nicotine_strength_mg_g = Field(output_processor=Join())
-    pouches_per_can = Field(output_processor=Join())
-    weight_per_pouch_gram = Field(output_processor=Join())
-    content_per_can_gram = Field(output_processor=Join())
-    producer = Field(output_processor=Join())
+    product_type = Field(input_processor=MapCompose(strip),
+                         output_processor=Join())
+    format = Field(input_processor=MapCompose(strip),
+                   output_processor=Join())
+    strength = Field(input_processor=MapCompose(strip),
+                     output_processor=Join())
+    flavour_facts = Field(input_processor=MapCompose(strip),
+                          output_processor=Join())
+    nicotine_strength_mg_pouch = Field(input_processor=MapCompose(strip),
+                                       output_processor=Join())
+    nicotine_strength_mg_g = Field(input_processor=MapCompose(strip),
+                                   output_processor=Join())
+    pouches_per_can = Field(input_processor=MapCompose(strip),
+                            output_processor=Join())
+    weight_per_pouch_gram = Field(input_processor=MapCompose(strip),
+                                  output_processor=Join())
+    content_per_can_gram = Field(input_processor=MapCompose(strip),
+                                 output_processor=Join())
+    producer = Field(input_processor=MapCompose(strip),
+                     output_processor=Join())
 
     # Description
     category = Field(output_processor=Join())
