@@ -4,23 +4,27 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 from scrapy import Field, Item
+from itemloaders.processors import Join
 
 
 class HayppItem(Item):
-    brand_name = Field()
-    product_type = Field()
-    format = Field()
-    strength = Field()
-    flavour_facts = Field()
-    nicotine_strength_mg_pouch = Field()
-    nicotine_strength_mg_g = Field()
-    pouches_per_can = Field()
-    weight_per_pouch_gram = Field()
-    content_per_can_gram = Field()
-    producer = Field()
-    category = Field()
-    flavour_pg = Field()
-    strength_definition = Field()
-    manufacturer = Field()
-    nicotine_mg_portion = Field()
-    amount_of_bags_can = Field()
+    # Facts
+    brand_name = Field(output_processor=Join())
+    product_type = Field(output_processor=Join())
+    format = Field(output_processor=Join())
+    strength = Field(output_processor=Join())
+    flavour_facts = Field(output_processor=Join())
+    nicotine_strength_mg_pouch = Field(output_processor=Join())
+    nicotine_strength_mg_g = Field(output_processor=Join())
+    pouches_per_can = Field(output_processor=Join())
+    weight_per_pouch_gram = Field(output_processor=Join())
+    content_per_can_gram = Field(output_processor=Join())
+    producer = Field(output_processor=Join())
+
+    # Description
+    category = Field(output_processor=Join())
+    flavour_pg = Field(output_processor=Join())
+    strength_definition = Field(output_processor=Join())
+    manufacturer = Field(output_processor=Join())
+    nicotine_mg_portion = Field(output_processor=Join())
+    amount_of_bags_can = Field(output_processor=Join())
