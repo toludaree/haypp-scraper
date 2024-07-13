@@ -38,6 +38,7 @@ class NicotinePouchesSpider(CrawlSpider):
                        "/div[contains(text(), 'Facts')]" \
                        "/following-sibling::div" \
                        "//tr[td='Brand']/td[2]/text()")
+        
         item.add_xpath("product_type",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Facts')]" \
@@ -48,6 +49,7 @@ class NicotinePouchesSpider(CrawlSpider):
                        "/div[contains(text(), 'Facts')]" \
                        "/following-sibling::div" \
                        "//tr[td='Product type']/td[2]/text()")
+        
         item.add_xpath("format",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Facts')]" \
@@ -58,6 +60,7 @@ class NicotinePouchesSpider(CrawlSpider):
                        "/div[contains(text(), 'Facts')]" \
                        "/following-sibling::div" \
                        "//tr[td='Strength']/td[2]/text()")
+        
         item.add_xpath("flavour_facts",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Facts')]" \
@@ -68,6 +71,7 @@ class NicotinePouchesSpider(CrawlSpider):
                        "/div[contains(text(), 'Facts')]" \
                        "/following-sibling::div" \
                        "//tr[td='Flavour']/td[2]/text()")
+        
         item.add_xpath("nicotine_strength_mg_pouch",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Facts')]" \
@@ -104,31 +108,186 @@ class NicotinePouchesSpider(CrawlSpider):
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Description')]" \
                        "/following-sibling::div" \
-                       "/ul/li[strong='Category:']/em/text()")
+                       "/ul/li[contains(strong, 'Category')]/em/text()")
+        item.add_xpath("category",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Category')]/em[2]/text()")
+        item.add_xpath("category",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Category')]/em/text()")
+        item.add_xpath("category",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong, 'Category')]/text()")
+        item.add_xpath("category",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Category')]/text()")
+        item.add_xpath("category",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Category')]/text()")
+        
         item.add_xpath("flavour_pg",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Description')]" \
                        "/following-sibling::div" \
-                       "/ul/li[strong='Flavour:']/em/text()")
+                        "/ul/li[contains(strong, 'Flavour')]/em/text()")
+        item.add_xpath("flavour_pg",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                        "/ul/li[contains(em/strong, 'Flavour')]/em[2]/text()")
+        item.add_xpath("flavour_pg",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                        "/ul/li[contains(strong/em, 'Flavour')]/em/text()")
+        item.add_xpath("flavour_pg",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                        "/ul/li[contains(strong, 'Flavour')]/text()")
+        item.add_xpath("flavour_pg",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                        "/ul/li[contains(em/strong, 'Flavour')]/text()")
+        item.add_xpath("flavour_pg",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                        "/ul/li[contains(strong/em, 'Flavour')]/text()")
+        
         item.add_xpath("strength_definition",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Description')]" \
                        "/following-sibling::div" \
-                       "/ul/li[strong='Strength Definition:']/em/text()")
+                       "/ul/li[contains(strong, 'Strength')]/em/text()")
+        item.add_xpath("strength_definition",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Strength')]/em[2]/text()")
+        item.add_xpath("strength_definition",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Strength')]/em/text()")
+        item.add_xpath("strength_definition",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong, 'Strength')]/text()")
+        item.add_xpath("strength_definition",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Strength')]/text()")
+        item.add_xpath("strength_definition",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Strength')]/text()")
+        
         item.add_xpath("manufacturer",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Description')]" \
                        "/following-sibling::div" \
-                       "/ul/li[strong='Manufacturer:']/em/text()")
+                       "/ul/li[contains(strong, 'Manufacturer')]/em/text()")
+        item.add_xpath("manufacturer",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Manufacturer')]/em[2]/text()")
+        item.add_xpath("manufacturer",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Manufacturer')]/em/text()")
+        item.add_xpath("manufacturer",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong, 'Manufacturer')]/text()")
+        item.add_xpath("manufacturer",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Manufacturer')]/text()")
+        item.add_xpath("manufacturer",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Manufacturer')]/text()")
+        
         item.add_xpath("nicotine_mg_portion",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Description')]" \
                        "/following-sibling::div" \
-                       "/ul/li[strong='Nicotine mg/portion:']/em/text()")
+                       "/ul/li[contains(strong, 'Nicotine')]/em/text()")
+        item.add_xpath("nicotine_mg_portion",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Nicotine')]/em[2]/text()")
+        item.add_xpath("nicotine_mg_portion",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Nicotine')]/em/text()")
+        item.add_xpath("nicotine_mg_portion",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong, 'Nicotine')]/text()")
+        item.add_xpath("nicotine_mg_portion",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Nicotine')]/text()")
+        item.add_xpath("nicotine_mg_portion",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Nicotine')]/text()")
+        
         item.add_xpath("amount_of_bags_can",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Description')]" \
                        "/following-sibling::div" \
-                       "/ul/li[strong='Amount of bags/can:']/em/text()")
+                       "/ul/li[contains(strong, 'Amount of bags')]/em/text()")
+        item.add_xpath("amount_of_bags_can",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Amount of bags')]/em[2]/text()")
+        item.add_xpath("amount_of_bags_can",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Amount of bags')]/em/text()")
+        item.add_xpath("amount_of_bags_can",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong, 'Amount of bags')]/text()")
+        item.add_xpath("amount_of_bags_can",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(em/strong, 'Amount of bags')]/text()")
+        item.add_xpath("amount_of_bags_can",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Description')]" \
+                       "/following-sibling::div" \
+                       "/ul/li[contains(strong/em, 'Amount of bags')]/text()")
 
         yield item.load_item()
