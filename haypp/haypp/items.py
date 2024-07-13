@@ -4,12 +4,17 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 from scrapy import Field, Item
-from itemloaders.processors import Join
+from itemloaders.processors import Join, MapCompose
+
+
+def strip(d:str):
+    return d.strip()
 
 
 class HayppItem(Item):
     # Facts
-    brand_name = Field(output_processor=Join())
+    brand_name = Field(input_processor=MapCompose(strip),
+                       output_processor=Join())
     product_type = Field(output_processor=Join())
     format = Field(output_processor=Join())
     strength = Field(output_processor=Join())

@@ -11,10 +11,16 @@ class NicotinePouchesSpider(Spider):
                   "https://www.haypp.com/uk/velo/velo-freeze-x-strong"]
 
     def parse(self, response):
-        item = ItemLoader(item=HayppItem(), response=response, selector=response)
+        item = ItemLoader(item=HayppItem(),
+                          response=response,
+                          selector=response)
 
         # Facts
-        item.add_xpath("brand_name", "//div[contains(@class, 'p-info-section')]/div[contains(text(), 'Facts')]/following-sibling::div//tr[td='Brand']/td[2]/a/text()")
+        item.add_xpath("brand_name",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Facts')]" \
+                       "/following-sibling::div" \
+                       "//tr[td='Brand']/td[2]/a/text()")
         item.add_xpath("product_type", "//div[contains(@class, 'p-info-section')]/div[contains(text(), 'Facts')]/following-sibling::div//tr[td='Product type']/td[2]/a/text()")
         item.add_xpath("format", "//div[contains(@class, 'p-info-section')]/div[contains(text(), 'Facts')]/following-sibling::div//tr[td='Format']/td[2]/text()")
         item.add_xpath("strength", "//div[contains(@class, 'p-info-section')]/div[contains(text(), 'Facts')]/following-sibling::div//tr[td='Strength']/td[2]/text()")
