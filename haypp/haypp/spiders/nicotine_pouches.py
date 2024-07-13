@@ -1,14 +1,26 @@
 
-from scrapy import Spider
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
 from haypp.items import HayppItem
 from itemloaders import ItemLoader
 
 
-class NicotinePouchesSpider(Spider):
+class NicotinePouchesSpider(CrawlSpider):
     name = "nicotine_pouches"
     allowed_domains = ["haypp.com"]
-    start_urls = ["https://www.haypp.com/uk/nordic-spirit/nordic-spirit-uk-spearmint-slim-normal",
-                  "https://www.haypp.com/uk/velo/velo-freeze-x-strong"]
+    start_urls = ["https://www.haypp.com/uk/nicotine-pouches/"]
+
+    rules = (
+        Rule(
+            LinkExtractor(
+                restrict_xpaths="//div[@class='grid']" \
+                                "/div[@data-product-source]" \
+                                "/div[contains(@class, 'product-card')]/a"
+            ),
+            callback="parse",
+            follow=True
+        ),
+    )
 
     def parse(self, response):
         item = ItemLoader(item=HayppItem(),
@@ -21,11 +33,21 @@ class NicotinePouchesSpider(Spider):
                        "/div[contains(text(), 'Facts')]" \
                        "/following-sibling::div" \
                        "//tr[td='Brand']/td[2]/a/text()")
+        item.add_xpath("brand_name",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Facts')]" \
+                       "/following-sibling::div" \
+                       "//tr[td='Brand']/td[2]/text()")
         item.add_xpath("product_type",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Facts')]" \
                        "/following-sibling::div" \
                        "//tr[td='Product type']/td[2]/a/text()")
+        item.add_xpath("product_type",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Facts')]" \
+                       "/following-sibling::div" \
+                       "//tr[td='Product type']/td[2]/text()")
         item.add_xpath("format",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Facts')]" \
@@ -41,6 +63,11 @@ class NicotinePouchesSpider(Spider):
                        "/div[contains(text(), 'Facts')]" \
                        "/following-sibling::div" \
                        "//tr[td='Flavour']/td[2]/a/text()")
+        item.add_xpath("flavour_facts",
+                       "//div[contains(@class, 'p-info-section')]" \
+                       "/div[contains(text(), 'Facts')]" \
+                       "/following-sibling::div" \
+                       "//tr[td='Flavour']/td[2]/text()")
         item.add_xpath("nicotine_strength_mg_pouch",
                        "//div[contains(@class, 'p-info-section')]" \
                        "/div[contains(text(), 'Facts')]" \
