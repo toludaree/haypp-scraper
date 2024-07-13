@@ -8,6 +8,10 @@
 from itemadapter import ItemAdapter
 
 
-class HayppPipeline:
+class HayppDefaultValuePipeline:
     def process_item(self, item, spider):
+
+        for field in item.fields:
+            item.setdefault(field, "")
+        
         return item
