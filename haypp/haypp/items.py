@@ -14,15 +14,15 @@ def strip(d:str):
 class HayppItem(Item):
     # Facts
     brand_name = Field(input_processor=MapCompose(strip),
-                       output_processor=Join())
+                       output_processor=Join(separator=""))
     product_type = Field(input_processor=MapCompose(strip),
-                         output_processor=Join())
+                         output_processor=Join(separator=""))
     format = Field(input_processor=MapCompose(strip),
                    output_processor=Join())
     strength = Field(input_processor=MapCompose(strip),
                      output_processor=Join())
     flavour_facts = Field(input_processor=MapCompose(strip),
-                          output_processor=Join())
+                          output_processor=Join(separator=""))
     nicotine_strength_mg_pouch = Field(input_processor=MapCompose(strip),
                                        output_processor=Join())
     nicotine_strength_mg_g = Field(input_processor=MapCompose(strip),
